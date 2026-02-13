@@ -1,106 +1,105 @@
 #  Vet Apoteka – Frontend
 
-Frontend aplikacija za sistem "Veterinarska apoteka" razvijena u Angular framework-u.
+Frontend application for the "Veterinary Pharmacy" system built using the Angular framework.
 
-Ova aplikacija omogućava:
-- Registraciju i prijavu korisnika
-- Pregled proizvoda
-- Pretragu proizvoda
-- Dodavanje proizvoda u korpu
-- Kreiranje porudžbina
-- Admin panel za upravljanje proizvodima i korisnicima
-- Magacioner panel za upravljanje porudžbinama
+This application provides:
+- User registration and login
+- Product browsing
+- Product search
+- Add to cart functionality
+- Order creation
+- Admin panel for managing products and users
+- Warehouse panel for managing orders
 
 ---
 
-##  Tehnologije
+##  Technologies
 
 - Angular
 - TypeScript
 - SCSS
 - RxJS
-- JWT autentifikacija
-- REST API komunikacija sa Spring Boot backend-om
+- JWT Authentication
+- REST API communication with Spring Boot backend
 
 ---
 
-##  Uloge u sistemu
+##  System Roles
 
-###  Korisnik
-- Pregled proizvoda
-- Pretraga proizvoda
-- Dodavanje u korpu
-- Kupovina
+###  Customer
+- Browse products
+- Search products
+- Add products to cart
+- Place orders
 
 ###  Admin
-- Dodavanje proizvoda
-- Izmena proizvoda
-- Brisanje proizvoda
-- Upravljanje korisnicima
+- Add new products
+- Edit products
+- Delete products
+- Manage users
 
-###  Magacioner
-- Pregled porudžbina
-- Promena statusa porudžbine (NEW, PROCESSING, READY, SHIPPED, CANCELED)
+###  Warehouse
+- View orders
+- Change order status (NEW, PROCESSING, READY, SHIPPED, CANCELED)
 
 ---
 
-##  Valuta
+##  Currency
 
-Sve cene su prikazane u RSD (srpski dinar).
+All prices are displayed in RSD (Serbian Dinar).
 
 ---
 
 #  Screenshots
 
-##  Login stranica
+##  Login Page
 <img width="1101" height="833" alt="Screenshot 2026-02-13 091011" src="https://github.com/user-attachments/assets/613bc934-ad07-43c0-8ef8-650483ee6ce1" />
 
 
-##  Signup stranica
+##  Signup Page
 <img width="1079" height="888" alt="Screenshot 2026-02-13 091023" src="https://github.com/user-attachments/assets/fc33aca5-f93f-4409-bab2-bf737f04940d" />
 
 
-##  Korisnik – Početna stranica
+##  Customer – Homepage
 <img width="1903" height="915" alt="Screenshot 2026-02-13 091041" src="https://github.com/user-attachments/assets/e773132b-0efa-44e3-b0fc-bf85831a065e" />
 
 
-##  Admin – Panel
+##  Admin – Product Panel
 <img width="1883" height="914" alt="Screenshot 2026-02-13 091130" src="https://github.com/user-attachments/assets/bf2aeb80-c96c-4892-b529-fba9500b3c20" />
 
 
-##  Magacioner – Panel porudžbina
+##  Warehouse – Orders Panel
 <img width="1739" height="767" alt="Screenshot 2026-02-13 091102" src="https://github.com/user-attachments/assets/84915ef1-46af-4fef-af5f-65b214eefbe0" />
 
 ---
 
-##  Pokretanje aplikacije
+##  Running the Application
 
-1. Instalacija zavisnosti:
+1. Install dependencies:
   - npm install
-2. Pokretanje aplikacije:
+2. Start the application:
   -ng serve
-3. 
-Aplikacija će biti dostupna na:
+3. The application will be available at:
   - http://localhost:4200
 
 ---
 
 ##  Backend
 
-Aplikacija koristi Spring Boot backend koji je u posebnom repozitorijumu:
+This frontend connects to a Spring Boot backend available in a separate repository:
 
 Vet-Apoteka-Backend
 
-Backend mora biti pokrenut na:
+The backend must be running at:
   - http://localhost:8080
 
 ---
 
-##  Autor
+##  Author
 
 Zoran Višić  
 Metropolitan University  
-Diplomski rad – Veterinarska apoteka
+Final Thesis Project – Veterinary Pharmacy System
 
 
 
