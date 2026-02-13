@@ -13,7 +13,7 @@ Ova aplikacija omogućava:
 
 ---
 
-## 🛠 Tehnologije
+##  Tehnologije
 
 - Angular
 - TypeScript
