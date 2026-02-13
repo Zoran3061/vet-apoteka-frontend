@@ -1,0 +1,31 @@
+<app-header></app-header>
+<div class="container" *ngIf="productData">
+  <img [src]="'assets/images/' + productData.image" alt="Slika">
+  <div class="details">
+        <div class="header">
+            <span class="name">
+                {{productData.name}}
+            </span>
+        </div>
+        <div class="tags">
+            <span class="category">
+                {{productData.category}}
+            </span>
+            <span class="type">
+                {{productData.material}}
+            </span>
+        </div>
+        <div class="desc">
+            <span>
+                {{productData.description}}
+            </span>
+        </div>
+        <div class="price">
+            <span>
+              {{ productData.price | currency:'RSD':'code':'1.2-2' }}
+            </span>
+        </div>
+
+        <button (click)="buyProducts(productData)">Dodaj u korpu</button>
+    </div>
+</div>

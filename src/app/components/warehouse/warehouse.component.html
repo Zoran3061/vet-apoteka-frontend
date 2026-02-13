@@ -1,0 +1,42 @@
+<app-header></app-header>
+
+<div style="padding: 20px;">
+  <h2>Magacioner – Porudžbine</h2>
+
+  <div *ngIf="loading">Učitavanje...</div>
+
+  <table class="table mt-3" *ngIf="!loading">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>User ID</th>
+      <th>Order date</th>
+      <th>Status</th>
+      <th>Promeni</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let o of orders">
+      <td>{{ o.id }}</td>
+      <td>{{ o.userId }}</td>
+      <td>{{ o.orderDate }}</td>
+      <td><b>{{ o.status }}</b></td>
+      <td>
+        <select
+          (change)="changeStatus(o, $any($event.target).value)"
+        >
+          <option
+            *ngFor="let s of statuses"
+            [value]="s"
+            [selected]="s === o.status"
+          >
+            {{ s }}
+          </option>
+        </select>
+      </td>
+
+    </tr>
+    </tbody>
+  </table>
+</div>

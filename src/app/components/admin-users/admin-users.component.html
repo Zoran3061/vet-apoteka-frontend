@@ -1,0 +1,79 @@
+<app-header></app-header>
+
+<div style="padding: 20px;">
+  <h2>Admin – User Panel</h2>
+
+  <!-- CREATE MAGACIONER -->
+  <div class="box">
+    <h3>Dodaj magacionera</h3>
+
+    <div class="grid">
+      <input [(ngModel)]="createModel.firstName" placeholder="First name" />
+      <input [(ngModel)]="createModel.lastName" placeholder="Last name" />
+      <input [(ngModel)]="createModel.username" placeholder="Username" />
+      <input [(ngModel)]="createModel.password" placeholder="Password" type="password" />
+    </div>
+
+    <button (click)="createMagacioner()">ADD MAGACIONER</button>
+  </div>
+
+  <div *ngIf="loading">Učitavanje...</div>
+
+  <!-- USERS TABLE -->
+  <table class="table mt-3" *ngIf="!loading">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>First</th>
+      <th>Last</th>
+      <th>Username</th>
+      <th>Role</th>
+      <th>Akcije</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let u of users">
+      <td>{{ u.id }}</td>
+
+      <td>
+        <span *ngIf="editingId !== u.id">{{ u.firstName }}</span>
+        <input *ngIf="editingId === u.id" [(ngModel)]="editModel.firstName" />
+      </td>
+
+      <td>
+        <span *ngIf="editingId !== u.id">{{ u.lastName }}</span>
+        <input *ngIf="editingId === u.id" [(ngModel)]="editModel.lastName" />
+      </td>
+
+      <td>
+        <span *ngIf="editingId !== u.id">{{ u.username }}</span>
+        <input *ngIf="editingId === u.id" [(ngModel)]="editModel.username" />
+      </td>
+
+      <td>
+        <b *ngIf="editingId !== u.id">{{ u.role }}</b>
+
+        <select *ngIf="editingId === u.id" [(ngModel)]="editModel.role">
+          <!-- ne nudimo ADMIN u dropdown da se ne napravi novi admin slučajno -->
+          <option *ngFor="let r of roles" [ngValue]="r">{{ r }}</option>
+        </select>
+      </td>
+
+      <td class="actions">
+        <button *ngIf="editingId !== u.id" (click)="startEdit(u)">EDIT</button>
+        <button *ngIf="editingId === u.id" (click)="saveEdit()">SAVE</button>
+        <button *ngIf="editingId === u.id" (click)="cancelEdit()">CANCEL</button>
+
+        <button
+          (click)="deleteUser(u)"
+          [disabled]="u.role === 'ADMIN' || u.id === 1"
+          [title]="(u.role === 'ADMIN' || u.id === 1) ? 'Admin se ne može obrisati' : ''"
+        >
+          DELETE
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

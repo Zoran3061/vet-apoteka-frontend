@@ -1,0 +1,76 @@
+<app-header></app-header>
+
+<div style="padding: 20px;">
+  <h2>Admin – Product Panel</h2>
+
+  <div *ngIf="loading">Učitavanje...</div>
+
+  <!-- ADD FORM -->
+  <div style="border: 1px solid #ddd; padding: 12px; border-radius: 8px; margin: 12px 0;">
+    <h3>Dodaj proizvod</h3>
+
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+      <input [(ngModel)]="newProduct.name" placeholder="Name" />
+      <input [(ngModel)]="newProduct.image" placeholder="Image (npr. photo1.jpg)" />
+      <input [(ngModel)]="newProduct.category" placeholder="Category" />
+      <input [(ngModel)]="newProduct.material" placeholder="Manufacturer / Material" />
+      <input [(ngModel)]="newProduct.price" type="number" placeholder="Price" />
+      <input [(ngModel)]="newProduct.description" placeholder="Description" />
+    </div>
+
+    <button style="margin-top:10px;" (click)="addProduct()">ADD</button>
+  </div>
+
+  <!-- LIST -->
+  <table class="table mt-3" *ngIf="!loading">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Material</th>
+      <th>Price</th>
+      <th>Image</th>
+      <th>Description</th>
+      <th>Akcije</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let p of products">
+      <td>{{ p.id }}</td>
+
+      <!-- VIEW / EDIT switch -->
+      <td *ngIf="editingId !== p.id">{{ p.name }}</td>
+      <td *ngIf="editingId === p.id"><input [(ngModel)]="editModel.name" /></td>
+
+      <td *ngIf="editingId !== p.id">{{ p.category }}</td>
+      <td *ngIf="editingId === p.id"><input [(ngModel)]="editModel.category" /></td>
+
+      <td *ngIf="editingId !== p.id">{{ p.material }}</td>
+      <td *ngIf="editingId === p.id"><input [(ngModel)]="editModel.material" /></td>
+
+      <td *ngIf="editingId !== p.id">{{ p.price }}</td>
+      <td *ngIf="editingId === p.id"><input type="number" [(ngModel)]="editModel.price" /></td>
+
+      <td *ngIf="editingId !== p.id">{{ p.image }}</td>
+      <td *ngIf="editingId === p.id"><input [(ngModel)]="editModel.image" /></td>
+
+      <td *ngIf="editingId !== p.id">{{ p.description }}</td>
+      <td *ngIf="editingId === p.id"><input [(ngModel)]="editModel.description" /></td>
+
+      <td>
+        <ng-container *ngIf="editingId !== p.id">
+          <button (click)="startEdit(p)">EDIT</button>
+          <button (click)="deleteProduct(p.id)">DELETE</button>
+        </ng-container>
+
+        <ng-container *ngIf="editingId === p.id">
+          <button (click)="saveEdit()">SAVE</button>
+          <button (click)="cancelEdit()">CANCEL</button>
+        </ng-container>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,26 @@
+<app-header></app-header>
+<app-search></app-search>
+<ul>
+    <li *ngFor="let product of products">
+        <a routerLink="/products/{{product.id}}">
+          <img [src]="'assets/images/' + product.image" alt="">
+          <div class="content">
+            <div class="name">
+                {{product.name}}
+            </div>
+            <div class="category">
+                {{product.category}}
+                {{product.material}}
+            </div>
+            <div class="price">
+                <span>
+                    {{ product.price | currency:'RSD':'code':'1.2-2' }}
+                </span>
+            </div>
+         </div>
+        </a>
+        <button class="add-to-cart" (click)="buyProducts(product)">Dodaj u korpu</button>
+    </li>
+</ul>
+
+

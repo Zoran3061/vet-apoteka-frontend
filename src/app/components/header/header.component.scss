@@ -1,0 +1,52 @@
+$royal-blue: #0b4fbf;
+
+header {
+  background: whitesmoke;
+  padding: 0;
+  border-bottom: 2px solid $royal-blue;
+}
+
+.container {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* LOGO */
+.brand {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.brand-logo {
+  height: 48px;
+  width: auto;
+  display: block;
+}
+
+/* NAV */
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline;
+}
+
+nav ul li a {
+  color: $royal-blue;
+  text-decoration: none;
+  padding: 1em;
+  display: inline-block;
+  transition: 0.2s ease-in-out;
+  border-radius: 6px;
+}
+
+nav ul li a:hover {
+  background: $royal-blue;
+  color: white;
+}

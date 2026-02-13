@@ -1,0 +1,86 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Andjela",
+      "lastName": "Glisic",
+      "username": "ana",
+      "password": "ana",
+      "isAdmin": "true"
+    },
+    {
+      "id": 2,
+      "firstName": "Nikola",
+      "lastName": "Glisic",
+      "username": "nikola",
+      "password": "nikola",
+      "isAdmin": "false"
+    },
+    {
+      "id": 3,
+      "firstName": "Katarina",
+      "lastName": "Tomic",
+      "username": "kaca",
+      "password": "kaca",
+      "isAdmin": "false"
+    },
+    {
+      "id": 4,
+      "firstName": "Vanja",
+      "lastName": "Maksimovic",
+      "username": "vanja",
+      "password": "vanja",
+      "isAdmin": "false"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Aurora",
+      "image": "/assets/images/photo1.jpg",
+      "category": "Bracelet",
+      "material": "Silver",
+      "price": 124,
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sintoccaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+      "id": 2,
+      "name": "Aedon",
+      "image": "/assets/images/photo2.jpg",
+      "category": "Necklace",
+      "material": "Gold",
+      "price": 278,
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sintoccaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+      "id": 3,
+      "name": "Jasmin",
+      "image": "/assets/images/photo3.jpg",
+      "category": "Earing",
+      "material": "Gold",
+      "price": 106,
+      "desc": "Lorem ipsum"
+    },
+    {
+      "id": 4,
+      "name": "Diana",
+      "image": "/assets/images/photo4.jpg",
+      "category": "Ring",
+      "material": "Rose Gold",
+      "price": 224,
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sintoccaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+      "id": 5,
+      "name": "Sophia",
+      "image": "/assets/images/photo8.jpg",
+      "category": "Bracelet",
+      "material": "Gold",
+      "price": 124,
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sintoccaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
