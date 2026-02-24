@@ -1,0 +1,117 @@
+<app-header></app-header>
+
+<div style="padding:20px;">
+
+  <h2>Magacioner – Porudžbine</h2>
+
+  <!-- FILTER -->
+  <div style="margin-bottom:15px;">
+    <label>Filter po statusu: </label>
+    <select [(ngModel)]="selectedStatus" (change)="applyFilter()">
+      <option value="ALL">SVE</option>
+      <option value="NEW">NEW</option>
+      <option value="READY">READY</option>
+      <option value="SHIPPED">SHIPPED</option>
+      <option value="CANCELED">CANCELED</option>
+    </select>
+  </div>
+
+  <div *ngIf="loading">Učitavanje...</div>
+
+  <!-- TABELA PORUDŽBINA -->
+  <table class="table" *ngIf="!loading">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>User ID</th>
+      <th>Datum</th>
+      <th>Status</th>
+      <th>Akcije</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <ng-container *ngFor="let o of filteredOrders">
+
+      <tr>
+        <td>{{ o.id }}</td>
+        <td>{{ o.userId }}</td>
+        <td>{{ o.orderDate | date:'short' }}</td>
+
+        <td>
+          <b>{{ o.status }}</b>
+        </td>
+
+        <td>
+
+          <button (click)="loadOrderItems(o.id)">
+            📋 Stavke
+          </button>
+
+          <button *ngIf="canPrepare(o)" (click)="prepareOrder(o)">
+            PRIPREMI
+          </button>
+
+          <button *ngIf="canShip(o)" (click)="shipOrder(o)">
+            POŠALJI
+          </button>
+
+          <button *ngIf="canCancel(o)" (click)="cancelOrder(o)">
+            OTKAŽI
+          </button>
+
+          <span *ngIf="o.status === 'SHIPPED'">📦 Poslato</span>
+          <span *ngIf="o.status === 'CANCELED'">❌ Otkazano</span>
+
+        </td>
+      </tr>
+
+      <!-- STAVKE PORUDŽBINE -->
+      <tr *ngIf="orderItemsMap[o.id]">
+        <td colspan="5" style="background:#f9f9f9;">
+          <div *ngFor="let item of orderItemsMap[o.id]">
+            • {{ item.productName }} (Količina: {{ item.quantity }})
+          </div>
+        </td>
+      </tr>
+
+    </ng-container>
+
+    </tbody>
+  </table>
+
+  <hr>
+
+  <!-- PRIJEM ROBE -->
+  <h3>Evidentiranje prijema nove robe</h3>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Proizvod</th>
+      <th>Trenutni lager</th>
+      <th>Dodaj količinu</th>
+      <th>Akcija</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let p of products">
+      <td>{{ p.name }}</td>
+      <td>{{ p.stock }}</td>
+      <td>
+        <input type="number"
+               [(ngModel)]="stockInputMap[p.id]"
+               placeholder="Količina"
+               style="width:100px;">
+      </td>
+      <td>
+        <button (click)="increaseStock(p.id)">
+          PRIJEM ROBE
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>

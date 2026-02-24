@@ -1,0 +1,20 @@
+
+<!--<div *ngIf="isLoggedIn()" class="page-header">
+  <div class="container">
+    <h1>Rutiranje - primer</h1>
+    <div class="navLinks">
+      <a [routerLink]="['/home']">Početna</a>
+      <a [routerLink]="['/about']"> O nama</a>
+      <a [routerLink]="['/contact']"> Kontakt</a>
+      |
+      <a [routerLink]="['/products']">Proizvodi</a>
+      <a [routerLink]="['/login']"> Prijavljivanje</a>
+      <a *ngIf="isLoggedIn()" [routerLink]="['/protected']"> Zaštićeno</a>
+    </div>
+  </div>
+</div>-->
+<div id="content1">
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

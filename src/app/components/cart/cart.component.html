@@ -1,0 +1,74 @@
+<app-header></app-header>
+
+<div class="cart-entries-container">
+
+  <div id="actions" *ngIf="(totalPrice$ | async) != 0">
+    <span class="price">
+      {{ totalPrice$ | async | currency:'RSD':'code':'1.2-2' }}
+    </span>
+
+    <!-- samo briše frontend -->
+    <button class="clear-button action-button"
+            (click)="clearEntries()">
+      OBRIŠI SVE
+    </button>
+
+    <!-- pravi order u bazi -->
+    <button class="clear-button action-button" (click)="buyAll()">
+      KUPI SVE
+    </button>
+
+  </div>
+
+  <div *ngIf="(totalPrice$ | async) == 0">
+    Cart is empty!
+  </div>
+
+  <div *ngFor="let entry of (cartEntries$ | async)" class="cart-entry">
+    <div class="space"></div>
+
+    <div>
+      <img [src]="'assets/images/' + entry.product.image">
+    </div>
+
+    <div class="entry-details">
+      <div class="product-name">
+        {{ entry.product.name }}
+      </div>
+
+      <div class="count">
+        Count: {{ entry.count }}
+      </div>
+
+      <div class="detail-button-row">
+        <div class="space"></div>
+
+        <div>
+          <button class="action-button detail-button"
+                  (click)="less(entry)">
+            -
+          </button>
+        </div>
+
+        <div>
+          <button class="action-button detail-button"
+                  (click)="more(entry)"
+                  [disabled]="entry.count >= entry.product.stock"
+                  [ngStyle]="{ opacity: entry.count >= entry.product.stock ? 0.5 : 1 }">
+            +
+          </button>
+        </div>
+
+        <!-- Ako je dostignut maksimum -->
+        <div *ngIf="entry.count >= entry.product.stock"
+             style="color:red; font-size:12px; margin-top:4px;">
+          Maksimalna količina na lageru
+        </div>
+
+      </div>
+    </div>
+
+    <div class="space"></div>
+  </div>
+
+</div>

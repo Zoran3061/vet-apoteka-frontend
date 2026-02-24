@@ -1,0 +1,107 @@
+<app-header></app-header>
+
+<div style="padding: 20px;">
+  <h2>Admin – Product Panel</h2>
+
+  <div *ngIf="loading">Učitavanje...</div>
+
+  <div style="border: 1px solid #ddd; padding: 12px; border-radius: 8px; margin: 12px 0;">
+    <h3>Dodaj proizvod</h3>
+
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+      <input [(ngModel)]="newProduct.name" placeholder="Name" />
+      <input [(ngModel)]="newProduct.image" placeholder="Image (npr. photo1.jpg)" />
+
+      <!-- CATEGORY DROPDOWN -->
+      <select [(ngModel)]="newProduct.categoryId">
+        <option [ngValue]="null">-- Izaberi kategoriju --</option>
+        <option *ngFor="let c of categories" [ngValue]="c.id">
+          {{ c.name }}
+        </option>
+      </select>
+
+      <input [(ngModel)]="newProduct.material" placeholder="Manufacturer / Material" />
+      <input [(ngModel)]="newProduct.price" type="number" placeholder="Price" />
+      <input [(ngModel)]="newProduct.stock" type="number" placeholder="Stock" />
+      <input [(ngModel)]="newProduct.description" placeholder="Description" />
+    </div>
+
+    <button style="margin-top:10px;" (click)="addProduct()">ADD</button>
+  </div>
+
+  <table class="table mt-3" *ngIf="!loading">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Stock</th>
+      <th>Material</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>Akcije</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let p of products">
+
+      <td>{{ p.id }}</td>
+
+      <!-- NAME -->
+      <td *ngIf="editingId !== p.id">{{ p.name }}</td>
+      <td *ngIf="editingId === p.id">
+        <input [(ngModel)]="editModel.name" />
+      </td>
+
+      <!-- CATEGORY -->
+      <td *ngIf="editingId !== p.id">{{ p.category?.name }}</td>
+      <td *ngIf="editingId === p.id">
+        <select [(ngModel)]="editModel.categoryId">
+          <option *ngFor="let c of categories" [ngValue]="c.id">
+            {{ c.name }}
+          </option>
+        </select>
+      </td>
+
+      <!-- STOCK -->
+      <td *ngIf="editingId !== p.id">{{ p.stock }}</td>
+      <td *ngIf="editingId === p.id">
+        <input type="number" [(ngModel)]="editModel.stock" />
+      </td>
+
+      <!-- MATERIAL -->
+      <td *ngIf="editingId !== p.id">{{ p.material }}</td>
+      <td *ngIf="editingId === p.id">
+        <input [(ngModel)]="editModel.material" />
+      </td>
+
+      <!-- PRICE -->
+      <td *ngIf="editingId !== p.id">{{ p.price }}</td>
+      <td *ngIf="editingId === p.id">
+        <input type="number" [(ngModel)]="editModel.price" />
+      </td>
+
+      <!-- DESCRIPTION -->
+      <td *ngIf="editingId !== p.id">{{ p.description }}</td>
+      <td *ngIf="editingId === p.id">
+        <input [(ngModel)]="editModel.description" />
+      </td>
+
+      <!-- ACTIONS -->
+      <td>
+        <ng-container *ngIf="editingId !== p.id">
+          <button (click)="startEdit(p)">EDIT</button>
+          <button (click)="deleteProduct(p.id)">DELETE</button>
+        </ng-container>
+
+        <ng-container *ngIf="editingId === p.id">
+          <button (click)="saveEdit()">SAVE</button>
+          <button (click)="cancelEdit()">CANCEL</button>
+        </ng-container>
+      </td>
+
+    </tr>
+    </tbody>
+  </table>
+</div>

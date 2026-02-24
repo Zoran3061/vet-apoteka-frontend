@@ -1,0 +1,41 @@
+<header>
+  <div class="container">
+
+    <!-- LEVO: LOGO -->
+    <div class="brand">
+      <img class="brand-logo" src="assets/images/logo.png" alt="Logo" />
+    </div>
+
+    <nav *ngIf="isLoggedIn">
+      <ul>
+
+        <!-- USER -->
+        <li *ngIf="!isAdmin && !isMagacioner">
+          <a routerLink="/home">Apoteka</a>
+        </li>
+
+        <li *ngIf="!isAdmin && !isMagacioner">
+          <a routerLink="/cart">Korpa ({{ countProducts$ | async }})</a>
+        </li>
+
+        <!-- ADMIN -->
+        <li *ngIf="isAdmin">
+          <a routerLink="/admin/products">Admin - Proizvodi</a>
+        </li>
+
+        <li *ngIf="isAdmin">
+          <a routerLink="/admin/users">Admin - Korisnici</a>
+        </li>
+
+        <!-- MAGACIONER: nema ništa osim logout -->
+
+        <!-- LOGOUT -->
+        <li>
+          <a (click)="logout()">Izloguj se ({{ username }})</a>
+        </li>
+
+      </ul>
+    </nav>
+
+  </div>
+</header>
