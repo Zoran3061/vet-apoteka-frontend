@@ -53,7 +53,7 @@ All prices are displayed in RSD (Serbian Dinar).
 #  Screenshots
 
 ##  Login Page
-<img width="1101" height="833" alt="Screenshot 2026-02-13 091011" src="https://github.com/user-attachments/assets/613bc934-ad07-43c0-8ef8-650483ee6ce1" />
+<img width="1101" height="833" alt="Screenshot 2026-02-13 091011" src="https://github.com/user-attachments/assets/79aec309-c3ef-4bdd-bef3-5136aeac1c09" />
 
 
 ##  Customer – Homepage
