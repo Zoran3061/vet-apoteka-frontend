@@ -1,27 +1,102 @@
-# Locket
+#  Vet Apoteka – Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.3.
+Frontend application for the "Veterinary Pharmacy" system built using the Angular framework.
 
-## Development server
+This application provides:
+- User registration and login
+- Product browsing
+- Product search
+- Add to cart functionality
+- Order creation
+- Admin panel for managing products and users
+- Warehouse panel for managing orders
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+##  Technologies
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular
+- TypeScript
+- SCSS
+- RxJS
+- JWT Authentication
+- REST API communication with Spring Boot backend
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+##  System Roles
 
-## Running unit tests
+###  Customer
+- Browse products
+- Search products
+- Add products to cart
+- Place orders
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+###  Admin
+- Add new products
+- Edit products
+- Delete products
+- Manage users
 
-## Running end-to-end tests
+###  Warehouse
+- View orders
+- Change order status (NEW, PROCESSING, READY, SHIPPED, CANCELED)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
 
-## Further help
+##  Currency
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+All prices are displayed in RSD (Serbian Dinar).
+
+---
+
+#  Screenshots
+
+##  Login Page
+<img width="1101" height="833" alt="Screenshot 2026-02-13 091011" src="https://github.com/user-attachments/assets/613bc934-ad07-43c0-8ef8-650483ee6ce1" />
+
+
+##  Customer – Homepage
+<img width="1897" height="914" alt="Screenshot 2026-02-24 155907" src="https://github.com/user-attachments/assets/3a658afe-47f8-40d0-863b-d62403a57b63" />
+
+
+##  Admin – Product Panel
+<img width="1895" height="912" alt="Screenshot 2026-02-24 160005" src="https://github.com/user-attachments/assets/d08da421-fad9-42c4-b6fa-e02a4bc39709" />
+
+
+##  Admin – User Panel
+<img width="1895" height="915" alt="Screenshot 2026-02-24 160016" src="https://github.com/user-attachments/assets/3c927e83-0b8c-4e0d-8f27-052a30d37be0" />
+
+
+##  Warehouse – Orders Panel
+<img width="1895" height="913" alt="Screenshot 2026-02-24 155940" src="https://github.com/user-attachments/assets/374339a8-c6bb-404d-9f78-92a7f4452946" />
+
+---
+
+##  Running the Application
+
+1. Install dependencies:
+  - npm install
+2. Start the application:
+  -ng serve
+3. The application will be available at:
+  - http://localhost:4200
+
+---
+
+##  Backend
+
+This frontend connects to a Spring Boot backend available in a separate repository:
+
+Vet-Apoteka-Backend
+
+The backend must be running at:
+  - http://localhost:8080
+
+---
+
+##  Author
+
+Zoran Višić  
+Metropolitan University  
+Final Thesis Project – Veterinary Pharmacy System
